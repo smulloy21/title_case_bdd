@@ -5,3 +5,5 @@ gem('sinatra-contrib')
 gem('rspec')
 gem('capybara')
 gem('pry')
+
+ruby '2.2.0'
