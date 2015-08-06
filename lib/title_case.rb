@@ -1,15 +1,18 @@
 class String
   define_method(:title_case) do
-    exempt_words = ["from", "the", "at", "to", "and"]
-    multi_words = self.split(" ")
+    little_words = ["from", "the", "at", "to", "and", "in", "a", "an", "on", "of"]
+    multi_words = self.downcase().split(" ")
     multi_words.each() do |word|
       if multi_words[0]==word
         word.capitalize!()
-      elsif exempt_words.include?(word)
-        word.downcase!()
       else
-        word.capitalize!()
+        if little_words.include?(word)
+        else
+          word.capitalize!()
+        end
       end
+      word.sub!("Mcd", "McD")
+      word.sub!("O'm", "O'M")
     end
     multi_words.join(" ")
   end

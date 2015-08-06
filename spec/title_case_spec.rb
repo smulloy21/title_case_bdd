@@ -3,24 +3,24 @@ require('title_case')
 
 describe('String#title_case') do
   it("capitalizes the first letter of a word") do
-    expect(("beowolf").title_case()).to(eq("Beowolf"))
+    expect(("damages").title_case()).to(eq("Damages"))
   end
-end
-
-describe('String#title_case') do
   it("capitalizes the first letter of every word") do
-    expect(("beowolf chris iman").title_case()).to(eq("Beowolf Chris Iman"))
+    expect(("true detective").title_case()).to(eq("True Detective"))
   end
-end
-
-describe('String#title_case') do
-  it("does not captilize specific designated words") do
-    expect(("men are from mars").title_case()).to(eq("Men Are from Mars"))
+  it("does not capitalize designated words") do
+    expect(("parks and recreation").title_case()).to(eq("Parks and Recreation"))
   end
-end
-
-describe('String#title_case') do
-  it("does capitalize specific designated words if they are the first word") do
-    expect(("from here to there").title_case()).to(eq("From Here to There"))
+  it("does capitalize designated words if first word") do
+    expect(("and you will know us").title_case()).to(eq("And You Will Know Us"))
+  end
+  it("lowercases all other letters") do
+    expect(("AnD YOu To ThE wILL KnOw Us").title_case()).to(eq("And You to the Will Know Us"))
+  end
+  it("processes special characters") do
+    expect(("I can't loan you 1984!").title_case()).to(eq("I Can't Loan You 1984!"))
+  end
+  it("processes unique case entries") do
+    expect(("lay on mcduff (and o'malley)!").title_case()).to(eq("Lay on McDuff (and O'Malley)!"))
   end
 end
